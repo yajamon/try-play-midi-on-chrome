@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/yajamon/try-play-midi-on-chrome/issues"
   },
-  "homepage": "https://github.com/yajamon/try-play-midi-on-chrome#readme"
+  "homepage": "https://github.com/yajamon/try-play-midi-on-chrome#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-typescript": "^3.1.2",
+    "typescript": "^2.0.6"
+  }
 }
