@@ -1,0 +1,19 @@
+{
+  "name": "try-play-midi-on-chrome",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://yajamon@github.com/yajamon/try-play-midi-on-chrome.git"
+  },
+  "author": "yajamon <yajamon.tatsuki@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yajamon/try-play-midi-on-chrome/issues"
+  },
+  "homepage": "https://github.com/yajamon/try-play-midi-on-chrome#readme"
+}
