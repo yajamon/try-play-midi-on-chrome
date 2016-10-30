@@ -1,3 +1,7 @@
 {
-    "extends": "google"
+    "parser": "babel-eslint",
+    "extends": "google",
+    "rules": {
+        "spaced-comment": "off"
+    }
 }
