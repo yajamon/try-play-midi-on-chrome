@@ -9,10 +9,15 @@ let tsProject = ts.createProject('src/ts/tsconfig.json', {
 
 gulp.task('default', ['build']);
 
-gulp.task('build', ['build:ts']);
+gulp.task('build', ['build:ts', 'build:html']);
 
 gulp.task('build:ts', function() {
     let tsResult = gulp.src('src/ts/**/*.ts')
         .pipe(tsProject());
     tsResult.js.pipe(gulp.dest('dist/js/'));
+});
+
+gulp.task('build:html', function() {
+    gulp.src('src/html/**/*.html')
+        .pipe(gulp.dest('dist/html/'));
 });
