@@ -30,5 +30,5 @@ gulp.task('build:ts', function() {
 
 gulp.task('build:html', function() {
     gulp.src(paths.src.html)
-        .pipe(gulp.dest(dist.html));
+        .pipe(gulp.dest(paths.dist.html));
 });
