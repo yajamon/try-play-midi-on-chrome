@@ -22,6 +22,10 @@ gulp.task('default', ['build']);
 
 gulp.task('build', ['build:ts', 'build:html']);
 
+gulp.task('watch', ['watch:ts', 'watch.html']);
+
+// sub tasks
+
 gulp.task('build:ts', function() {
     let tsResult = gulp.src(paths.src.ts)
         .pipe(tsProject());
@@ -31,4 +35,12 @@ gulp.task('build:ts', function() {
 gulp.task('build:html', function() {
     gulp.src(paths.src.html)
         .pipe(gulp.dest(paths.dist.html));
+});
+
+gulp.task('watch:ts', function() {
+    gulp.watch(paths.src.ts, ['build:ts']);
+});
+
+gulp.task('watch:html', function() {
+    gulp.watch(paths.src.html, ['build:html']);
 });
