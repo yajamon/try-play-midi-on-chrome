@@ -22,7 +22,7 @@ gulp.task('default', ['build']);
 
 gulp.task('build', ['build:ts', 'build:html']);
 
-gulp.task('watch', ['watch:ts', 'watch.html']);
+gulp.task('watch', ['watch:ts', 'watch:html']);
 
 // sub tasks
 
