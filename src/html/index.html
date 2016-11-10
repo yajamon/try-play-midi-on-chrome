@@ -18,6 +18,10 @@
                 <input type="number" v-model="node.detune.value">
                 <input type="button" value="remove" @click="removeNode(node)" >
             </template>
+            <template v-else v-if="isGain(node)" >
+                <input type="number" v-model="node.gain.value">
+                <input type="button" value="remove" @click="removeNode(node)" >
+            </template>
             <template v-else>
                 <div>
                     Unknown node...

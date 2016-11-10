@@ -44,6 +44,12 @@ window.addEventListener('load', () => {
                 }
                 return false
             },
+            isGain(node: AudioNode) {
+                if (node instanceof GainNode) {
+                    return true;
+                }
+                return false;
+            },
         },
     });
     
