@@ -3,9 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <script src="../vendor/vue/vue.js"></script>
     <script src="../js/app.js"></script>
 </head>
 <body>
-    
+    <div id="app">
+        <input type="button" value="Add Oscillator" @click="addOscillator" >
+        <div v-for="node in audioNodes" >
+            <template v-if="isOscillator(node)">
+                <select v-model="node.type">
+                    <option v-for="option in oscillatorTypes" value="{{option}}"> {{option}} </option>
+                </select>
+                <input type="number" v-model="node.frequency.value">
+                <input type="number" v-model="node.detune.value">
+            </template>
+            <template v-else v-if="isGain(node)" >
+                <input type="number" v-model="node.gain.value">
+            </template>
+            <template v-else>
+                <div>
+                    Unknown node...
+                </div>
+            </template>
+            <input type="button" value="remove" @click="removeNode(node)" >
+        </div>
+    </div>
 </body>
 </html>
