@@ -38,6 +38,12 @@ window.addEventListener('load', () => {
                 node.disconnect();
                 nodes.$remove(node);
             },
+            isOscillator(node: AudioNode) {
+                if (node instanceof OscillatorNode) {
+                    return true;
+                }
+                return false
+            },
         },
     });
     

@@ -10,12 +10,20 @@
     <div id="app">
         <input type="button" value="Add Oscillator" @click="addOscillator" >
         <div v-for="node in audioNodes" >
-            <select v-model="node.type">
-                <option v-for="option in oscillatorTypes" value="{{option}}"> {{option}} </option>
-            </select>
-            <input type="number" v-model="node.frequency.value">
-            <input type="number" v-model="node.detune.value">
-            <input type="button" value="remove" @click="removeNode(node)" >
+            <template v-if="isOscillator(node)">
+                <select v-model="node.type">
+                    <option v-for="option in oscillatorTypes" value="{{option}}"> {{option}} </option>
+                </select>
+                <input type="number" v-model="node.frequency.value">
+                <input type="number" v-model="node.detune.value">
+                <input type="button" value="remove" @click="removeNode(node)" >
+            </template>
+            <template v-else>
+                <div>
+                    Unknown node...
+                    <input type="button" value="remove" @click="removeNode(node)" >
+                </div>
+            </template>
         </div>
     </div>
 </body>
