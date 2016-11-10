@@ -19,9 +19,14 @@ window.addEventListener('load', () => {
                 let oscillator = audioCtx.createOscillator();
                 oscillator.type = "sine";
                 oscillator.frequency.value = 440;
-                oscillator.connect(audioCtx.destination);
                 oscillator.start();
+
+                let gain = audioCtx.createGain();
+                oscillator.connect(gain);
+                gain.connect(audioCtx.destination);
+
                 this.audioNodes.push(oscillator);
+                this.audioNodes.push(gain);
             },
             removeNode: function (node:AudioNode) {
                 let nodes: AudioNode[] = this.$data.audioNodes;
