@@ -7,6 +7,12 @@ window.addEventListener('load', () => {
         el: "#app",
         data: {
             audioNodes: [],
+            oscillatorTypes: [
+                "sine",
+                "square",
+                "sawtooth",
+                "triangle",
+            ],
         },
         methods: {
             addOscillator: function () {
