@@ -4,12 +4,15 @@
         "noImplicitAny": true,
         "removeComments": true,
         "target": "es5",
+        "jsx": "react",
         "lib": [
             "dom",
             "es2015"
         ],
         "types": [
-            "requirejs"
+            "requirejs",
+            "react",
+            "react-dom"
         ]
     }
 }
