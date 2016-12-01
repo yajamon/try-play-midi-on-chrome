@@ -20,6 +20,14 @@ let paths = {
 let tsProject = ts.createProject('src/ts/tsconfig.json', {
 });
 
+gulp.task('clean', function(){
+    del([
+        paths.dist.js,
+        paths.dist.html,
+        paths.dist.vendor,
+    ]);
+});
+
 gulp.task('default', ['build']);
 
 gulp.task('build', ['build:ts', 'build:html', 'build:vendor']);
@@ -29,20 +37,17 @@ gulp.task('watch', ['watch:ts', 'watch:html']);
 // sub tasks
 
 gulp.task('build:ts', function() {
-    del([paths.dist.js]);
     let tsResult = gulp.src(paths.src.ts)
         .pipe(tsProject());
     tsResult.js.pipe(gulp.dest(paths.dist.js));
 });
 
 gulp.task('build:html', function() {
-    del([paths.dist.html]);
     gulp.src(paths.src.html)
         .pipe(gulp.dest(paths.dist.html));
 });
 
 gulp.task('build:vendor', function() {
-    del([paths.dist.vendor]);
     gulp.src(paths.src.vendor)
         .pipe(gulp.dest(paths.dist.vendor));
 });
