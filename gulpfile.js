@@ -1,5 +1,5 @@
-/// <reference path="typings/gulp/gulp.d.ts" />
-/// <reference path="typings/gulp-typescript/gulp-typescript.d.ts" />
+/// <reference path="node_modules/@types/gulp/index.d.ts" />
+/// <reference path="node_modules/@types/gulp-typescript/index.d.ts" />
 let gulp = require('gulp');
 let ts = require('gulp-typescript');
 
