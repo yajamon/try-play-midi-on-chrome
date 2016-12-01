@@ -10,5 +10,5 @@ var requireConfig:RequireConfig = {
 };
 require.config(requireConfig);
 
-require(['index'],function(){
+require(['router'],function(){
 });
