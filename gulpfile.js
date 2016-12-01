@@ -6,7 +6,7 @@ let ts = require('gulp-typescript');
 let paths = {
     src: {
         html: 'src/html/**/*.html',
-        ts: 'src/ts/**/*.ts',
+        ts: 'src/ts/**/*.{ts,tsx}',
         vendor: 'src/vendor/**/*.*',
     },
     dist: {

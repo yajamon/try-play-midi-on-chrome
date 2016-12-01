@@ -5,6 +5,7 @@
         "removeComments": true,
         "target": "es5",
         "jsx": "react",
+        "moduleResolution": "node",
         "lib": [
             "dom",
             "es2015"
