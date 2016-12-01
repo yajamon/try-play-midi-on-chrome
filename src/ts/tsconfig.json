@@ -3,6 +3,17 @@
         "module": "amd",
         "noImplicitAny": true,
         "removeComments": true,
-        "target": "es6"
+        "target": "es5",
+        "jsx": "react",
+        "moduleResolution": "node",
+        "lib": [
+            "dom",
+            "es2015"
+        ],
+        "types": [
+            "requirejs",
+            "react",
+            "react-dom"
+        ]
     }
 }

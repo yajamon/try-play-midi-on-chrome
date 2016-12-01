@@ -1,13 +1,19 @@
-/// <reference path="typings/gulp/gulp.d.ts" />
-/// <reference path="typings/gulp-typescript/gulp-typescript.d.ts" />
+/// <reference path="node_modules/@types/gulp/index.d.ts" />
+/// <reference path="node_modules/@types/gulp-typescript/index.d.ts" />
 let gulp = require('gulp');
 let ts = require('gulp-typescript');
+let del = require('del');
 
 let paths = {
     src: {
         html: 'src/html/**/*.html',
-        ts: 'src/ts/**/*.ts',
-        vendor: 'src/vendor/**/*.*',
+        ts: 'src/ts/**/*.{ts,tsx}',
+        vendor: [
+            'node_modules/requirejs/require.js',
+            'node_modules/react/dist/react.js',
+            'node_modules/react-dom/dist/react-dom.js',
+            'node_modules/react-router/umd/ReactRouter.js',
+        ],
     },
     dist: {
         html: 'dist/html/',
@@ -17,7 +23,14 @@ let paths = {
 };
 
 let tsProject = ts.createProject('src/ts/tsconfig.json', {
-    out: 'app.js',
+});
+
+gulp.task('clean', function(){
+    del([
+        paths.dist.js,
+        paths.dist.html,
+        paths.dist.vendor,
+    ]);
 });
 
 gulp.task('default', ['build']);
@@ -40,8 +53,10 @@ gulp.task('build:html', function() {
 });
 
 gulp.task('build:vendor', function() {
-    gulp.src(paths.src.vendor)
-        .pipe(gulp.dest(paths.dist.vendor));
+    paths.src.vendor.forEach(libPath =>{
+        gulp.src(libPath)
+            .pipe(gulp.dest(paths.dist.vendor));
+    });
 });
 
 gulp.task('watch:ts', function() {

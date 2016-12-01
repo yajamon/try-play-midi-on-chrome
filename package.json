@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "prebuild": "gulp clean",
     "build": "gulp build",
     "watch": "gulp watch"
   },
@@ -19,12 +20,23 @@
   },
   "homepage": "https://github.com/yajamon/try-play-midi-on-chrome#readme",
   "devDependencies": {
+    "@types/gulp": "^3.8.32",
+    "@types/gulp-typescript": "0.0.32",
+    "@types/react-router": "^2.0.41",
+    "@types/requirejs": "^2.1.28",
     "babel-eslint": "^7.1.0",
-    "dtsm": "^1.1.0",
     "eslint": "^3.9.0",
     "eslint-config-google": "^0.7.0",
     "gulp": "^3.9.1",
     "gulp-typescript": "^3.1.2",
+    "react-router": "^3.0.0",
+    "requirejs": "^2.3.2",
     "typescript": "^2.0.6"
+  },
+  "dependencies": {
+    "@types/react": "^0.14.52",
+    "@types/react-dom": "^0.14.19",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1"
   }
 }
