@@ -8,7 +8,9 @@ let paths = {
     src: {
         html: 'src/html/**/*.html',
         ts: 'src/ts/**/*.{ts,tsx}',
-        vendor: 'src/vendor/**/*.*',
+        vendor: [
+            'node_modules/requirejs/require.js'
+        ],
     },
     dist: {
         html: 'dist/html/',
@@ -48,8 +50,10 @@ gulp.task('build:html', function() {
 });
 
 gulp.task('build:vendor', function() {
-    gulp.src(paths.src.vendor)
-        .pipe(gulp.dest(paths.dist.vendor));
+    paths.src.vendor.forEach(libPath =>{
+        gulp.src(libPath)
+            .pipe(gulp.dest(paths.dist.vendor));
+    });
 });
 
 gulp.task('watch:ts', function() {
