@@ -9,7 +9,9 @@ let paths = {
         html: 'src/html/**/*.html',
         ts: 'src/ts/**/*.{ts,tsx}',
         vendor: [
-            'node_modules/requirejs/require.js'
+            'node_modules/requirejs/require.js',
+            'node_modules/react/dist/react.js',
+            'node_modules/react-dom/dist/react-dom.js',
         ],
     },
     dist: {
