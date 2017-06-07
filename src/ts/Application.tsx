@@ -8,13 +8,19 @@ import { Link } from 'react-router';
  */
 export class Application extends React.Component<{}, {}> {
     render() {
+        const styles = {
+            inside: {
+                cssFloat: "left",
+                margin: "10px"
+            }
+        };
         return (
             <div>
-                <ul>
+                <ul style={styles.inside}>
                     <li><Link to="/">go root</Link></li>
                     <li><Link to="/hello">go hello</Link></li>
                 </ul>
-                <div>
+                <div style={styles.inside}>
                     {this.props.children}
                 </div>
             </div>
