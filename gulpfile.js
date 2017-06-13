@@ -12,7 +12,6 @@ let paths = {
             'node_modules/requirejs/require.js',
             'node_modules/react/dist/react.js',
             'node_modules/react-dom/dist/react-dom.js',
-            'node_modules/react-router/umd/ReactRouter.js',
         ],
     },
     dist: {

@@ -4,7 +4,6 @@ var requireConfig:RequireConfig = {
     paths: {
         'react': '../vendor/react',
         'react-dom': '../vendor/react-dom',
-        'react-router': '../vendor/ReactRouter',
         'domReady': '../vendor/ready',
     }
 };
