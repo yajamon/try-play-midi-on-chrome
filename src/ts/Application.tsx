@@ -18,11 +18,14 @@ interface ApplicationState {
  * Hello
  */
 export class Application extends React.Component<{}, ApplicationState> {
+    private componentList:JSX.Element[] = [];
     constructor() {
         super();
         this.state = {
             currentComponent: ChildComponent.Index
         };
+        this.componentList[ChildComponent.Index] = (<Index />);
+        this.componentList[ChildComponent.Hello] = (<Hello />);
     }
     render() {
         const styles = {
