@@ -41,7 +41,7 @@ export class Application extends React.Component<{}, ApplicationState> {
                     <li><Link to="/hello">go hello</Link></li>
                 </ul>
                 <div style={styles.inside}>
-                    {this.props.children}
+                    {this.componentList[this.state.currentComponent]}
                 </div>
             </div>
         );
