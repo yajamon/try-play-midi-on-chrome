@@ -1,12 +1,36 @@
 import * as React from 'react';
 import { render } from 'react-dom';
-import { Link } from 'react-router';
 
+import { Index } from './components/Index';
+import { Hello } from './components/Hello';
+
+enum ChildComponent {
+    Index,
+    Hello
+}
+
+interface ApplicationState {
+    currentComponent: ChildComponent;
+}
 
 /**
  * Hello
  */
-export class Application extends React.Component<{}, {}> {
+export class Application extends React.Component<{}, ApplicationState> {
+    private componentList:JSX.Element[] = [];
+    constructor() {
+        super();
+        this.state = {
+            currentComponent: ChildComponent.Index
+        };
+        this.componentList[ChildComponent.Index] = (<Index />);
+        this.componentList[ChildComponent.Hello] = (<Hello />);
+    }
+    currentComponent(index:ChildComponent){
+        this.setState({
+            currentComponent: index
+        });
+    }
     render() {
         const styles = {
             inside: {
@@ -17,11 +41,11 @@ export class Application extends React.Component<{}, {}> {
         return (
             <div>
                 <ul style={styles.inside}>
-                    <li><Link to="/">go root</Link></li>
-                    <li><Link to="/hello">go hello</Link></li>
+                    <li><button onClick={e => {this.currentComponent(ChildComponent.Index)}} >go index</button></li>
+                    <li><button onClick={e => {this.currentComponent(ChildComponent.Hello)}} >go hello</button></li>
                 </ul>
                 <div style={styles.inside}>
-                    {this.props.children}
+                    {this.componentList[this.state.currentComponent]}
                 </div>
             </div>
         );
