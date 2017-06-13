@@ -10,10 +10,20 @@ enum ChildComponent {
     Hello
 }
 
+interface ApplicationState {
+    currentComponent: ChildComponent;
+}
+
 /**
  * Hello
  */
-export class Application extends React.Component<{}, {}> {
+export class Application extends React.Component<{}, ApplicationState> {
+    constructor() {
+        super();
+        this.state = {
+            currentComponent: ChildComponent.Index
+        };
+    }
     render() {
         const styles = {
             inside: {
