@@ -5,6 +5,10 @@ import { Link } from 'react-router';
 import { Index } from './components/Index';
 import { Hello } from './components/Hello';
 
+enum ChildComponent {
+    Index,
+    Hello
+}
 
 /**
  * Hello
