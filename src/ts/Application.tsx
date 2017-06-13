@@ -27,6 +27,11 @@ export class Application extends React.Component<{}, ApplicationState> {
         this.componentList[ChildComponent.Index] = (<Index />);
         this.componentList[ChildComponent.Hello] = (<Hello />);
     }
+    currentComponent(index:ChildComponent){
+        this.setState({
+            currentComponent: index
+        });
+    }
     render() {
         const styles = {
             inside: {
@@ -37,8 +42,8 @@ export class Application extends React.Component<{}, ApplicationState> {
         return (
             <div>
                 <ul style={styles.inside}>
-                    <li><Link to="/">go root</Link></li>
-                    <li><Link to="/hello">go hello</Link></li>
+                    <li><button onClick={e => {this.currentComponent(ChildComponent.Index)}} >go index</button></li>
+                    <li><button onClick={e => {this.currentComponent(ChildComponent.Hello)}} >go hello</button></li>
                 </ul>
                 <div style={styles.inside}>
                     {this.componentList[this.state.currentComponent]}
