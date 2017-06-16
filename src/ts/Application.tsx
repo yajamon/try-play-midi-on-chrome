@@ -18,12 +18,13 @@ interface ApplicationState {
  */
 export class Application extends React.Component<{}, ApplicationState> {
     private componentList:JSX.Element[] = [];
+    private audioCtx = new AudioContext();
     constructor() {
         super();
         this.state = {
             currentComponent: ChildComponent.Index
         };
-        this.componentList[ChildComponent.Index] = (<Index />);
+        this.componentList[ChildComponent.Index] = (<Index audioCtx={this.audioCtx} />);
         this.componentList[ChildComponent.Hello] = (<Hello />);
     }
     currentComponent(index:ChildComponent){
